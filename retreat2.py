@@ -3,7 +3,7 @@ __metaclass__ = type
 from copy import deepcopy
 
 ALIVE = 'o'
-DEAD = ' '
+DEAD = '_'
 
 
 class Grid:
@@ -67,11 +67,15 @@ class Grid:
 
 if __name__ == '__main__':
     grid = Grid(10)
-    grid[1][0] = ALIVE
-    grid[1][1] = ALIVE
-    print(grid)
-    print("---")
-    print(grid.tick())
+    grid[2][3] = ALIVE
+    grid[2][4] = ALIVE
+    grid[2][5] = ALIVE
+
+    # for n in range(10):
+    while True:
+        print(grid)
+        grid = grid.tick()
+        print("iteration number %d\n" % n)
 
 # Local Variables:
 # compile-command: "python2 -m unittest test_retreat2"
