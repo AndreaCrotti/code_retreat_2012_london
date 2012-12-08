@@ -11,6 +11,12 @@ class Cell:
         else:
             self.state = choice((True, False))
 
+    def die(self):
+        self.state = False
+
+    def revive(self):
+        self.state = True
+
     def __eq__(self, other):
         if type(other) == bool:
             return self.state == other
@@ -59,6 +65,15 @@ class Grid:
 
     def __getitem__(self, item):
         return self.grid[item]
+
+    def tick_cell(self, x, y):
+        neighbours = self.neighbours(x, y)
+        num_neigh_on = len(filter(lambda x: x == True, neighbours))
+        if num_neigh_on < 2:
+            pass
+
+    def tick(self):
+        pass
 
 
 if __name__ == '__main__':

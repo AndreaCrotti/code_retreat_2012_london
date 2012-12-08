@@ -21,3 +21,5 @@ class TestLife(unittest.TestCase):
         grid = retreat.Grid(3, state=True)
         neigh_zero = [(0, 1), (1, 0), (1, 1)]
         self.assertEqual(sorted(grid.neighbours(0, 0)), neigh_zero)
+        neigh_one_zero = [(0, 0), (0, 1), (1, 1), (2, 0), (2, 1)]
+        self.assertEqual(sorted(grid.neighbours(1, 0)), neigh_one_zero)
