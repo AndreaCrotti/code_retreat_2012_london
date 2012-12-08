@@ -54,15 +54,15 @@ class Grid:
             return DEAD
 
     def tick(self):
-       matrix = deepcopy(self.grid)
-       new_grid = Grid(self.length)
-       new_grid.grid = matrix
-       for i in range(self.length):
-           for j in range(self.length):
-               val = self.tick_cell(i, j)
-               new_grid[i][j] = val
+        matrix = deepcopy(self.grid)
+        new_grid = Grid(self.length)
+        new_grid.grid = matrix
+        for i in range(self.length):
+            for j in range(self.length):
+                val = self.tick_cell(i, j)
+                new_grid[i][j] = val
 
-       return new_grid
+        return new_grid
 
 
 if __name__ == '__main__':
