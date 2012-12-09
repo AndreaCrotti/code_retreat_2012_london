@@ -47,11 +47,16 @@ class Grid:
         return len(active_neigh)
 
     def tick_cell(self, x, y):
+        current = self.grid[x][y]
         active = self.count_active(x, y)
-        if (active == 2) or (active == 3):
-            return ALIVE
+        if current == ALIVE:
+            if (active == 2) or (active == 3):
+                return ALIVE
         else:
-            return DEAD
+            if active == 3:
+                return ALIVE
+
+        return DEAD
 
     def tick(self):
         matrix = deepcopy(self.grid)
@@ -71,8 +76,7 @@ if __name__ == '__main__':
     grid[2][4] = ALIVE
     grid[2][5] = ALIVE
 
-    # for n in range(10):
-    while True:
+    for n in range(10):
         print(grid)
         grid = grid.tick()
         print("iteration number %d\n" % n)

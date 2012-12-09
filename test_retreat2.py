@@ -30,13 +30,13 @@ class TestLife(unittest.TestCase):
         self.grid[1][0] = life.ALIVE
         self.grid[1][1] = life.ALIVE
         cell = self.grid.tick_cell(0,0)
-        self.assertEqual(cell, life.ALIVE)
+        self.assertEqual(cell, life.DEAD)
 
     def test_whole_grid(self):
         self.grid[1][0] = life.ALIVE
         self.grid[1][1] = life.ALIVE
         new_grid = self.grid.tick()
-        self.assertEqual(new_grid[0][0], life.ALIVE)
+        self.assertEqual(new_grid[0][0], life.DEAD)
         self.assertEqual(new_grid[1][0], life.DEAD)
 
 # Local Variables:
